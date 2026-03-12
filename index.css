@@ -1,0 +1,281 @@
+/* ============================================================
+   BRAND TOKENS — Dr. Javier González MD
+   Facial Plastic Surgery | Guaynabo, Puerto Rico
+   Website: javiergonzalezmd.com
+   Instagram: @javiergonzalezmd
+   ============================================================
+
+   FONT LOADING
+   Fonts hosted on GitHub (raw). Always include ALL three
+   @font-face blocks in every output (HTML inline <style>,
+   React global CSS-in-JS, or CSS file).
+   Do NOT omit — fonts will not render without them.
+
+   NOTE ON NAMING: Each @font-face uses a distinct font-family
+   name so Claude can reference them independently:
+     --font-body:       'Brandon Grotesque'   (Brandon_reg.woff2)
+     --font-subtitle:   'HK Grotesk'          (HKGrotesk-Light.woff2)
+     --font-heading:    'Brandon Grotesque Bold' (Brandon_bld.woff2)
+   ============================================================ */
+
+/* 1. BODY — Brandon Grotesque Regular */
+@font-face {
+  font-family: 'Brandon Grotesque';
+  font-style:  normal;
+  font-weight: 300;
+  font-display: auto;
+  src: url('https://raw.githubusercontent.com/sisi-prompt/fonts/57442db7ec8c4abe4d38443e7285be54623916c6/Brandon_reg.woff2') format('woff2');
+}
+
+/* 2. SUBTITLE — HK Grotesk Light */
+@font-face {
+  font-family: 'HK Grotesk';
+  font-style:  normal;
+  font-weight: 300;
+  font-display: auto;
+  src: url('https://raw.githubusercontent.com/sisi-prompt/fonts/57442db7ec8c4abe4d38443e7285be54623916c6/HKGrotesk-Light.woff2') format('woff2');
+}
+
+/* 3. TITLE / HEADING — Brandon Grotesque Bold */
+@font-face {
+  font-family: 'Brandon Grotesque Bold';
+  font-style:  normal;
+  font-weight: 500;
+  font-display: auto;
+  src: url('https://raw.githubusercontent.com/sisi-prompt/fonts/57442db7ec8c4abe4d38443e7285be54623916c6/Brandon_bld.woff2') format('woff2');
+}
+
+/* ============================================================
+   DESIGN TOKENS
+   ============================================================ */
+
+:root {
+
+  /* --- COLORS ---
+     Palette is 6 tokens. Max 3 colors per post.
+     Stay within approved pairings below.
+  */
+
+  --color-gold:         #caaa61;   /* primary accent — warm gold */
+  --color-gold-dark:    #a58345;   /* secondary accent — deeper gold, hover/shadow */
+  --color-silver:       #d1d3d4;   /* light neutral — borders, dividers, subtle text */
+  --color-dark:         #302e2f;   /* primary dark bg — near-black, warm undertone */
+  --color-black:        #000000;   /* pure black — max contrast */
+  --color-white:        #ffffff;   /* pure white — light bg and text on dark */
+
+  /* APPROVED COLOR PAIRINGS — only these combinations are allowed:
+     bg --color-black  → text --color-white   or --color-gold   or --color-silver
+     bg --color-dark   → text --color-white   or --color-gold   or --color-silver
+     bg --color-white  → text --color-black   or --color-dark   or --color-gold-dark
+     bg --color-silver → text --color-black   or --color-dark
+     bg --color-gold   → text --color-black   or --color-dark
+     Never use --color-gold or --color-gold-dark as body text on white.
+     Never use --color-silver as a standalone background on posts.
+     Never introduce colors outside this palette.
+  */
+
+  /* --- FONT FAMILIES --- */
+  --font-heading:   'Brandon Grotesque Bold', sans-serif;   /* Titles */
+  --font-subtitle:  'HK Grotesk', sans-serif;               /* Sub-titles */
+  --font-body:      'Brandon Grotesque', sans-serif;         /* Body */
+
+  /* --- FONT WEIGHTS --- */
+  --font-weight-heading:   500;   /* Brandon Grotesque Bold */
+  --font-weight-subtitle:  300;   /* HK Grotesk Light */
+  --font-weight-body:      300;   /* Brandon Grotesque Regular */
+  --font-weight-accent:    500;   /* Brandon Grotesque Bold — for CTA/labels */
+
+  /* --- FONT STYLES --- */
+  --font-style-heading:  normal;
+  --font-style-subtitle: normal;
+  --font-style-body:     normal;
+
+  /* --- TEXT TRANSFORMS ---
+     Titles and sub-titles are ALWAYS uppercase.
+     Body is never transformed.
+  */
+  --text-transform-heading:  uppercase;
+  --text-transform-subtitle: uppercase;
+  --text-transform-body:     none;
+
+  /* --- FONT SIZES ---
+     Font size minimums per role — Claude must NEVER set sizes below these values
+     in generated HTML or inline CSS, regardless of container size:
+       Heading:   minimum 32px
+       Subtitle:  minimum 16px
+       Body:      minimum 14px
+       Accent:    minimum 12px
+  */
+  --font-size-heading:   68px;   /* main title — minimum 32px */
+  --font-size-subtitle:  32px;   /* sub-title — minimum 16px */
+  --font-size-body:      17px;   /* body text — minimum 14px */
+  --font-size-accent:    13px;   /* labels, CTA — minimum 12px */
+
+  /* --- LINE HEIGHTS --- */
+  --line-height-heading:  1.0;   /* tight for large display titles */
+  --line-height-subtitle: 1.2;
+  --line-height-body:     1.6;
+  --line-height-accent:   1.3;
+
+  /* --- LETTER SPACING ---
+     Titles and sub-titles always use 1.3px tracking (brand rule).
+  */
+  --letter-spacing-heading:  1.3px;   /* brand-specified tracking for titles */
+  --letter-spacing-subtitle: 1.3px;   /* brand-specified tracking for sub-titles */
+  --letter-spacing-body:     0.3px;   /* minimal tracking for body readability */
+  --letter-spacing-accent:   1.3px;   /* consistent with heading tracking */
+
+  /* --- SPACING --- */
+  --padding-post:   80px;   /* outer canvas safe zone padding */
+  --padding-card:   56px;   /* inner card / content block padding */
+
+  /* --- BORDERS & RADIUS ---
+     Brand uses clean, sharp, or barely-rounded edges.
+     No pill shapes. No heavy rounded cards.
+  */
+  --radius-none:  0px;    /* default — sharp edges */
+  --radius-soft:  4px;    /* subtle rounding only when needed */
+
+  /* --- DIVIDERS --- */
+  --divider-color:  var(--color-gold);   /* thin gold rule */
+  --divider-weight: 1px;
+
+}
+
+/* ============================================================
+   FONT SIZE MINIMUMS — enforced per role
+   Claude must respect these floors in all generated HTML/CSS.
+   Never write font-size values below these in inline styles:
+     Heading:   minimum 32px
+     Subtitle:  minimum 16px
+     Body:      minimum 14px
+     Accent:    minimum 12px
+   ============================================================ */
+
+.heading, h1, h2 {
+  font-size: max(32px, var(--font-size-heading));
+}
+
+.subtitle, h3, h4 {
+  font-size: max(16px, var(--font-size-subtitle));
+}
+
+.body-text, p {
+  font-size: max(14px, var(--font-size-body));
+}
+
+.accent, .label, button, .btn, .cta {
+  font-size: max(12px, var(--font-size-accent));
+}
+
+/* ============================================================
+   TYPOGRAPHY ROLES — Ready-to-use classes
+   ============================================================ */
+
+/* TITLE / HEADING — Brandon Grotesque Bold, uppercase, 1.3px tracked */
+.heading, h1, h2 {
+  font-family:    var(--font-heading);                  /* Brandon Grotesque Bold */
+  font-weight:    var(--font-weight-heading);           /* 500 */
+  font-style:     var(--font-style-heading);            /* normal */
+  text-transform: var(--text-transform-heading);        /* uppercase */
+  letter-spacing: var(--letter-spacing-heading);        /* 1.3px */
+  line-height:    var(--line-height-heading);            /* 1.0 */
+}
+
+/* SUB-TITLE — HK Grotesk Light, uppercase, 1.3px tracked */
+.subtitle, h3, h4 {
+  font-family:    var(--font-subtitle);                 /* HK Grotesk */
+  font-weight:    var(--font-weight-subtitle);          /* 300 */
+  font-style:     var(--font-style-subtitle);           /* normal */
+  text-transform: var(--text-transform-subtitle);       /* uppercase */
+  letter-spacing: var(--letter-spacing-subtitle);       /* 1.3px */
+  line-height:    var(--line-height-subtitle);
+}
+
+/* BODY — Brandon Grotesque Regular, mixed case */
+.body-text, p {
+  font-family:    var(--font-body);                     /* Brandon Grotesque */
+  font-weight:    var(--font-weight-body);              /* 300 */
+  font-style:     var(--font-style-body);               /* normal */
+  text-transform: var(--text-transform-body);           /* none */
+  letter-spacing: var(--letter-spacing-body);           /* 0.3px */
+  line-height:    var(--line-height-body);               /* 1.6 */
+}
+
+/* ACCENT / LABEL / CTA — Brandon Grotesque Bold, uppercase */
+.accent, .label, button, .btn, .cta {
+  font-family:    var(--font-heading);                  /* Brandon Grotesque Bold */
+  font-weight:    var(--font-weight-accent);            /* 500 */
+  font-style:     normal;
+  text-transform: uppercase;
+  letter-spacing: var(--letter-spacing-accent);         /* 1.3px */
+  line-height:    var(--line-height-accent);
+}
+
+/* ============================================================
+   SOCIAL MEDIA CANVAS SIZES
+   ============================================================ */
+
+/*
+  Instagram Square:   1080 × 1080px   — safe zone inset: 120px all sides
+  Instagram Portrait: 1080 × 1350px   — safe zone inset: 120px all sides
+  Instagram Story:    1080 × 1920px   — safe zone inset: 160px all sides
+  LinkedIn Banner:    1200 × 627px    — safe zone inset: 100px all sides
+*/
+
+/* ============================================================
+   CONTENT HIERARCHY — Social Posts
+   Always follow this order from top to bottom:
+
+   1. EYEBROW   — small uppercase label (e.g. "Cirugía Facial" / "Resultados")
+   2. HEADLINE  — main message in Cormorant Garamond, 1–6 words max
+   3. BODY      — supporting text in Jost Light, max 35 words
+   4. CTA       — optional short call to action (e.g. "Agenda tu consulta")
+   5. CONTACT   — phone or location, very small
+   6. LOGO      — bottom-right preferred, 80–160px wide, 48px clearance
+
+   Contact info:
+   📞 787-717-8911
+   📍 Guaynabo, Puerto Rico
+   🌐 javiergonzalezmd.com
+   📲 @javiergonzalezmd
+   ✉️ info@JavierGonzalezMD.com
+   Horario: Lunes–Viernes 8:00AM–5:00PM
+   ============================================================ */
+
+/* ============================================================
+   BRAND VOICE & VISUAL GUARDRAILS
+   ============================================================
+
+   TONE: Sophisticated, Warm, Medical-Grade, Honest, Human
+   — Active voice. Speak directly to the patient.
+   — Bilingual EN/ES — both are natural and appropriate.
+   — Emphasis on "natural results," "personalized," "expert care."
+   — Never sensationalize or over-promise outcomes.
+   — Avoid: exclamation overuse, clickbait, before/after shock tactics.
+   — Keep captions elegant and concise — less is more.
+
+   COLOR RULES:
+   — Max 3 colors per post.
+   — Dark-background compositions are preferred (--color-dark or --color-black).
+   — --color-gold is the primary accent — use for headlines, dividers, CTA text on dark.
+   — --color-gold-dark is for shadows, secondary accents, or hover states.
+   — --color-silver is for subtle borders and dividers only — never as a bg on its own.
+   — Never introduce colors outside the 6-token palette.
+   — Photography should feel editorial, elegant, and clinical — warm light, clean backgrounds.
+
+   TYPOGRAPHY RULES:
+   — Titles (.heading): Brandon Grotesque Bold — ALWAYS uppercase, 1.3px letter-spacing.
+   — Sub-titles (.subtitle): HK Grotesk Light — ALWAYS uppercase, 1.3px letter-spacing.
+   — Body (.body-text): Brandon Grotesque Regular — mixed case, never uppercase.
+   — Never mix more than 2 font roles in a single post.
+   — Never apply italic to any role — none of the three fonts use italic.
+
+   SHAPE & LAYOUT:
+   — Prefer sharp edges (--radius-none). No pill-shaped buttons, no heavy rounded cards.
+   — --color-gold thin rules or dividers as accent decoration.
+   — Generous whitespace. Let photography breathe.
+   — Strong typographic hierarchy: Title → Subtitle → Body — always in that order.
+   — Avoid busy, cluttered compositions.
+
+   ============================================================ */
