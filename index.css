@@ -102,20 +102,14 @@
      Font size minimums per role — Claude must NEVER set sizes below these values
      in generated HTML or inline CSS, regardless of container size:
        Heading:   minimum 32px
-       Subtitle:  minimum 16px
-       Body:      minimum 14px
+       Subtitle:  minimum 34px
+       Body:      minimum 40px
        Accent:    minimum 12px
   */
   --font-size-heading:   68px;   /* main title — minimum 32px */
-  --font-size-subtitle:  32px;   /* sub-title — minimum 16px */
-  --font-size-body:      17px;   /* body text — minimum 14px */
+  --font-size-subtitle:  34px;   /* sub-title — minimum 34px */
+  --font-size-body:      40px;   /* body text — minimum 40px */
   --font-size-accent:    13px;   /* labels, CTA — minimum 12px */
-
-  /* --- LINE HEIGHTS --- */
-  --line-height-heading:  1.0;   /* tight for large display titles */
-  --line-height-subtitle: 1.2;
-  --line-height-body:     1.6;
-  --line-height-accent:   1.3;
 
   /* --- LETTER SPACING ---
      Titles and sub-titles always use 1.3px tracking (brand rule).
@@ -147,8 +141,8 @@
    Claude must respect these floors in all generated HTML/CSS.
    Never write font-size values below these in inline styles:
      Heading:   minimum 32px
-     Subtitle:  minimum 16px
-     Body:      minimum 14px
+     Subtitle:  minimum 34px
+     Body:      minimum 40px
      Accent:    minimum 12px
    ============================================================ */
 
@@ -157,11 +151,11 @@
 }
 
 .subtitle, h3, h4 {
-  font-size: max(16px, var(--font-size-subtitle));
+  font-size: max(34px, var(--font-size-subtitle));
 }
 
 .body-text, p {
-  font-size: max(14px, var(--font-size-body));
+  font-size: max(40px, var(--font-size-body));
 }
 
 .accent, .label, button, .btn, .cta {
@@ -179,7 +173,6 @@
   font-style:     var(--font-style-heading);            /* normal */
   text-transform: var(--text-transform-heading);        /* uppercase */
   letter-spacing: var(--letter-spacing-heading);        /* 1.3px */
-  line-height:    var(--line-height-heading);            /* 1.0 */
 }
 
 /* SUB-TITLE — HK Grotesk Light, uppercase, 1.3px tracked */
@@ -189,7 +182,6 @@
   font-style:     var(--font-style-subtitle);           /* normal */
   text-transform: var(--text-transform-subtitle);       /* uppercase */
   letter-spacing: var(--letter-spacing-subtitle);       /* 1.3px */
-  line-height:    var(--line-height-subtitle);
 }
 
 /* BODY — Brandon Grotesque Regular, mixed case */
@@ -199,7 +191,6 @@
   font-style:     var(--font-style-body);               /* normal */
   text-transform: var(--text-transform-body);           /* none */
   letter-spacing: var(--letter-spacing-body);           /* 0.3px */
-  line-height:    var(--line-height-body);               /* 1.6 */
 }
 
 /* ACCENT / LABEL / CTA — Brandon Grotesque Bold, uppercase */
@@ -209,7 +200,6 @@
   font-style:     normal;
   text-transform: uppercase;
   letter-spacing: var(--letter-spacing-accent);         /* 1.3px */
-  line-height:    var(--line-height-accent);
 }
 
 /* ============================================================
